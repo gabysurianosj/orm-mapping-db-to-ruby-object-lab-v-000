@@ -12,16 +12,16 @@ class Student
   def self.all
     # retrieve all the rows from the "Students" database
     # remember each row should be a new instance of the Student class
-    
+     sql = "SELECT * FROM students"
+    DB[:conn].execute(sql).map do |student_attributes|
+      new_from_db(student_attributes)
+    end 
   end
 
   def self.find_by_name(name)
     # find the student in the database given a name
     # return a new instance of the Student class
-    sql = "SELECT * FROM students"
-    DB[:conn].execute(sql).map do |student_attributes|
-      new_from_db(student_attributes)
-    end 
+   
   end
   
   def save
