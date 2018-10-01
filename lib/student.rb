@@ -70,6 +70,8 @@ class Student
     sql = "SELECT * FROM stuents WHERE grade = 10 LIMIT ?"
     DB[:conn].execute(sql,number).map do |return_array|
       new_from_db(return_array)
-      
+    end 
+  end 
+  
   
 end
